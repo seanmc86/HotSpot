@@ -56,6 +56,10 @@ class ExploreViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        enableBasicLocationServices()
+    }
+    
     func startReceivingLocationChanges() {
         let authorizationStatus = CLLocationManager.authorizationStatus()
         if authorizationStatus != .authorizedWhenInUse && authorizationStatus != .authorizedAlways {
